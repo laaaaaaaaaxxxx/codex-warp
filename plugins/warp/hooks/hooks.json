@@ -11,6 +11,17 @@
         ]
       }
     ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PLUGIN_ROOT}/scripts/on-pre-compact.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [

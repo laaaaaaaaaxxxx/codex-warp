@@ -24,3 +24,7 @@ BODY=$(build_payload "$INPUT" "prompt_submit" \
     --arg query "$QUERY")
 
 "$SCRIPT_DIR/warp-notify.sh" "warp://cli-agent" "$BODY"
+
+# guard: on-pre-compact.sh reads this to tell mid-turn compaction from pre-turn compaction.
+mkdir -p "$PLUGIN_DATA"
+echo "$INPUT" | jq -r '.turn_id' > "$PLUGIN_DATA/$(echo "$INPUT" | jq -r '.session_id').turn"
