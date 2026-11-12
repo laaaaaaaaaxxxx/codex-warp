@@ -12,6 +12,8 @@ source "$SCRIPT_DIR/should-use-structured.sh"
 if ! should_use_structured; then
     exit 0
 fi
+# Inside Claude Code (CLAUDECODE is set) the terminal found below is Claude's pane, not ours.
+[ -n "$CLAUDECODE" ] && exit 0
 
 TITLE="${1:-Notification}"
 BODY="${2:-}"
